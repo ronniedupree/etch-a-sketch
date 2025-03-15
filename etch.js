@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
-const resizeBtn = document.getElementById('resize-btn')
+const resizeBtn = document.getElementById('resize-btn');
+const resetBtn = document.getElementById('reset-btn');
 
 function createGrid(size) {
     container.innerHTML = "";
@@ -34,6 +35,14 @@ function getNewSize() {
 
 resizeBtn.addEventListener("click", (e) => {
     getNewSize();
-})
+});
+
+resetBtn.addEventListener("click", (e) => {
+    let blockList = document.getElementsByClassName("block");
+    for (let i = 0; i < blockList.length; i++) {
+        blockList[i].style.background = "white";
+        blockList[i].style.opacity = "0.1";
+    }
+});
 
 createGrid(32);
