@@ -12,12 +12,15 @@ function createGrid(size) {
         block.className = "block";
         block.style.width = `${blockSize}px`;
         block.style.height = `${blockSize}px`;
+        block.style.background = "white";
         block.style.opacity = "0.1";
 
         block.addEventListener('mouseover', (e) => {
-            block.style.background = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-            block.style.opacity = "1";
-        })
+            if (block.style.background === "white") {
+                block.style.background = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+                block.style.opacity = "1";
+            }
+        });
 
         container.appendChild(block);
     }
